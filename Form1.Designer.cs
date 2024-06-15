@@ -57,6 +57,7 @@
             // 
             // L_MiddleText
             // 
+            L_MiddleText.AllowDrop = true;
             L_MiddleText.AutoEllipsis = true;
             L_MiddleText.Dock = DockStyle.Top;
             L_MiddleText.Font = new Font("Segoe UI", 12F);
@@ -65,8 +66,11 @@
             L_MiddleText.Name = "L_MiddleText";
             L_MiddleText.Size = new Size(324, 295);
             L_MiddleText.TabIndex = 2;
-            L_MiddleText.Text = "label1";
+            L_MiddleText.Text = "Drag a folder here to get started";
             L_MiddleText.TextAlign = ContentAlignment.MiddleCenter;
+            L_MiddleText.DragDrop += L_MiddleText_DragDrop;
+            L_MiddleText.DragEnter += L_MiddleText_DragEnter;
+            L_MiddleText.DragLeave += L_MiddleText_DragLeave;
             // 
             // TB_Password
             // 
