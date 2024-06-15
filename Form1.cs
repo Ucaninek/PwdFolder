@@ -102,13 +102,19 @@ namespace PwdFolder
                 {
                     case DroppedFileTypes.Folder:
                         //This is a normal folder, show the protection page.
+                        TC_Buttons.SelectedTab = TP_Protect;
+                        P_Controls.Show();
+
                         AnimateMiddleTextUpwards();
-                        SetMiddleText($"Set a password for {Path.GetDirectoryName(file)}");
+                        SetMiddleText($"Set a password for {Path.GetFileName(file)}");
                         break;
                     case DroppedFileTypes.ProtectedFolder:
-                        //Valid protected folder file
+                        //This is a protected folder file, show the unlock page.
+                        TC_Buttons.SelectedTab = TP_Unlock;
+                        P_Controls.Show();
+
                         AnimateMiddleTextUpwards();
-                        SetMiddleText("Valid protected folder file");
+                        SetMiddleText("Enter the password for {}");
                         break;
                 }
             }

@@ -33,15 +33,15 @@
             TB_Password = new MaskedTextBox();
             P_Controls = new Panel();
             TC_Buttons = new TabControl();
-            TP_UnprotectedFolder = new TabPage();
+            TP_Protect = new TabPage();
             B_ProtectFolder = new Button();
-            TP_ProtectedFolder = new TabPage();
+            TP_Unlock = new TabPage();
             button2 = new Button();
             button1 = new Button();
             P_Controls.SuspendLayout();
             TC_Buttons.SuspendLayout();
-            TP_UnprotectedFolder.SuspendLayout();
-            TP_ProtectedFolder.SuspendLayout();
+            TP_Unlock.SuspendLayout();
+            TP_Unlock.SuspendLayout();
             SuspendLayout();
             // 
             // L_Greet
@@ -96,24 +96,24 @@
             // 
             // TC_Buttons
             // 
-            TC_Buttons.Controls.Add(TP_UnprotectedFolder);
-            TC_Buttons.Controls.Add(TP_ProtectedFolder);
+            TC_Buttons.Controls.Add(TP_Protect);
+            TC_Buttons.Controls.Add(TP_Unlock);
             TC_Buttons.Location = new Point(3, 41);
             TC_Buttons.Name = "TC_Buttons";
             TC_Buttons.SelectedIndex = 0;
             TC_Buttons.Size = new Size(318, 77);
             TC_Buttons.TabIndex = 3;
             // 
-            // TP_UnprotectedFolder
+            // TP_Protect
             // 
-            TP_UnprotectedFolder.Controls.Add(B_ProtectFolder);
-            TP_UnprotectedFolder.Location = new Point(4, 24);
-            TP_UnprotectedFolder.Name = "TP_UnprotectedFolder";
-            TP_UnprotectedFolder.Padding = new Padding(3);
-            TP_UnprotectedFolder.Size = new Size(310, 49);
-            TP_UnprotectedFolder.TabIndex = 0;
-            TP_UnprotectedFolder.Text = "Protect";
-            TP_UnprotectedFolder.UseVisualStyleBackColor = true;
+            TP_Protect.Controls.Add(B_ProtectFolder);
+            TP_Protect.Location = new Point(4, 24);
+            TP_Protect.Name = "TP_Protect";
+            TP_Protect.Padding = new Padding(3);
+            TP_Protect.Size = new Size(310, 49);
+            TP_Protect.TabIndex = 0;
+            TP_Protect.Text = "Protect";
+            TP_Protect.UseVisualStyleBackColor = true;
             // 
             // B_ProtectFolder
             // 
@@ -126,17 +126,17 @@
             B_ProtectFolder.Text = "Protect Folder";
             B_ProtectFolder.UseVisualStyleBackColor = true;
             // 
-            // TP_ProtectedFolder
+            // TP_Unlock
             // 
-            TP_ProtectedFolder.Controls.Add(button2);
-            TP_ProtectedFolder.Controls.Add(button1);
-            TP_ProtectedFolder.Location = new Point(4, 24);
-            TP_ProtectedFolder.Name = "TP_ProtectedFolder";
-            TP_ProtectedFolder.Padding = new Padding(3);
-            TP_ProtectedFolder.Size = new Size(310, 49);
-            TP_ProtectedFolder.TabIndex = 1;
-            TP_ProtectedFolder.Text = "Unlock";
-            TP_ProtectedFolder.UseVisualStyleBackColor = true;
+            TP_Unlock.Controls.Add(button2);
+            TP_Unlock.Controls.Add(button1);
+            TP_Unlock.Location = new Point(4, 24);
+            TP_Unlock.Name = "TP_Unlock";
+            TP_Unlock.Padding = new Padding(3);
+            TP_Unlock.Size = new Size(310, 49);
+            TP_Unlock.TabIndex = 1;
+            TP_Unlock.Text = "Unlock";
+            TP_Unlock.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
@@ -174,8 +174,8 @@
             P_Controls.ResumeLayout(false);
             P_Controls.PerformLayout();
             TC_Buttons.ResumeLayout(false);
-            TP_UnprotectedFolder.ResumeLayout(false);
-            TP_ProtectedFolder.ResumeLayout(false);
+            TP_Protect.ResumeLayout(false);
+            TP_Unlock.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -186,10 +186,10 @@
         private MaskedTextBox TB_Password;
         private Panel P_Controls;
         private TabControl TC_Buttons;
-        private TabPage TP_UnprotectedFolder;
-        private TabPage TP_ProtectedFolder;
+        private TabPage TP_Unlock;
         private Button B_ProtectFolder;
         private Button button2;
         private Button button1;
+        private TabPage TP_Protect;
     }
 }
