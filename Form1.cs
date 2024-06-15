@@ -5,6 +5,12 @@ namespace PwdFolder
     public partial class Form1 : Form
     {
         private bool allowDragDrop = true;
+        private enum DroppedFileTypes
+        {
+            Folder,
+            ProtectedFolder,
+            Invalid
+        }
 
         public Form1()
         {
@@ -34,7 +40,6 @@ namespace PwdFolder
 
             //Set the height of the controls so that tabs are hidden when launched and visible on designer
             P_Controls.Height = 90;
-            TC_Buttons.Height = 10;
         }
 
         private void AnimateMiddleTextUpwards()
@@ -72,13 +77,6 @@ namespace PwdFolder
         {
             SetBackColor(SystemColors.Control);
             SetMiddleText("Drag a folder here to get started");
-        }
-
-        enum DroppedFileTypes
-        {
-            Folder,
-            ProtectedFolder,
-            Invalid
         }
 
         private static DroppedFileTypes GetFileType(string folderPath)

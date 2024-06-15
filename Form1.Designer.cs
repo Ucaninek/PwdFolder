@@ -40,7 +40,7 @@
             button1 = new Button();
             P_Controls.SuspendLayout();
             TC_Buttons.SuspendLayout();
-            TP_Unlock.SuspendLayout();
+            TP_Protect.SuspendLayout();
             TP_Unlock.SuspendLayout();
             SuspendLayout();
             // 
@@ -52,7 +52,7 @@
             L_Greet.Name = "L_Greet";
             L_Greet.Size = new Size(324, 42);
             L_Greet.TabIndex = 0;
-            L_Greet.Text = "Helo";
+            L_Greet.Text = "Hey There :3";
             L_Greet.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // L_MiddleText
@@ -83,6 +83,7 @@
             // 
             // P_Controls
             // 
+            P_Controls.BackColor = Color.Transparent;
             P_Controls.Controls.Add(TB_Password);
             P_Controls.Controls.Add(TC_Buttons);
             P_Controls.Dock = DockStyle.Bottom;
@@ -96,6 +97,7 @@
             // 
             // TC_Buttons
             // 
+            TC_Buttons.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             TC_Buttons.Controls.Add(TP_Protect);
             TC_Buttons.Controls.Add(TP_Unlock);
             TC_Buttons.Location = new Point(3, 41);
