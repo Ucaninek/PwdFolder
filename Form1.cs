@@ -4,6 +4,7 @@ namespace PwdFolder
 {
     public partial class Form1 : Form
     {
+        private string folderPath = string.Empty;
         private bool allowDragDrop = true;
         private enum DroppedFileTypes
         {
@@ -96,26 +97,49 @@ namespace PwdFolder
                 if (files?.Length != 1) return;
                 string file = files[0];
                 var droppedFileType = GetFileType(file);
+
+                if (droppedFileType != DroppedFileTypes.Invalid)
+                {
+                    allowDragDrop = false;
+                    AnimateMiddleTextUpwards();
+                    folderPath = file;
+                    P_Controls.Show();
+                }
                 switch (droppedFileType)
                 {
                     case DroppedFileTypes.Folder:
                         //This is a normal folder, show the protection page.
                         TC_Buttons.SelectedTab = TP_Protect;
-                        P_Controls.Show();
-
-                        AnimateMiddleTextUpwards();
                         SetMiddleText($"Set a password for {Path.GetFileName(file)}");
                         break;
                     case DroppedFileTypes.ProtectedFolder:
                         //This is a protected folder file, show the unlock page.
                         TC_Buttons.SelectedTab = TP_Unlock;
-                        P_Controls.Show();
-
-                        AnimateMiddleTextUpwards();
                         SetMiddleText("Enter the password for {}");
                         break;
                 }
             }
+        }
+
+        private async void B_ProtectFolder_Click(object sender, EventArgs e)
+        {
+            if(string.IsNullOrWhiteSpace(TB_Password.Text))
+            {
+                SetMiddleText("Please enter a password");
+                return;
+            }
+            await LockUtil.ProtectFolderAsync(folderPath, TB_Password.Text, new Progress<int>(percentComplete =>
+            {
+                SetMiddleText($"Encrypting... ({percentComplete}%)");
+            })).ContinueWith(task =>
+            {
+                if (task.IsFaulted)
+                {
+                    SetMiddleText(task.Exception.Message);
+                    return;
+                }
+                SetMiddleText("Folder is now being protected.");
+            });
         }
     }
 }
