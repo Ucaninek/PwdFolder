@@ -25,6 +25,11 @@ namespace PwdFolder
             tabControl.SizeMode = TabSizeMode.Fixed;
         }
 
+        private void SetBigText(string text)
+        {
+            Transition.run(L_BigText, "Text", text, new TransitionType_EaseInEaseOut(250));
+        }
+
         private void SetMiddleText(string text)
         {
             Transition.run(L_MiddleText, "Text", text, new TransitionType_EaseInEaseOut(250));

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            L_Greet = new Label();
+            L_BigText = new Label();
             L_MiddleText = new Label();
             TB_Password = new MaskedTextBox();
             P_Controls = new Panel();
@@ -44,16 +44,16 @@
             TP_Unlock.SuspendLayout();
             SuspendLayout();
             // 
-            // L_Greet
+            // L_BigText
             // 
-            L_Greet.Dock = DockStyle.Top;
-            L_Greet.Font = new Font("Segoe UI Semibold", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            L_Greet.Location = new Point(0, 0);
-            L_Greet.Name = "L_Greet";
-            L_Greet.Size = new Size(324, 42);
-            L_Greet.TabIndex = 0;
-            L_Greet.Text = "Hey There :3";
-            L_Greet.TextAlign = ContentAlignment.MiddleCenter;
+            L_BigText.Dock = DockStyle.Top;
+            L_BigText.Font = new Font("Segoe UI Semibold", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            L_BigText.Location = new Point(0, 0);
+            L_BigText.Name = "L_BigText";
+            L_BigText.Size = new Size(324, 42);
+            L_BigText.TabIndex = 0;
+            L_BigText.Text = "Hey There :3";
+            L_BigText.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // L_MiddleText
             // 
@@ -170,7 +170,7 @@
             ClientSize = new Size(324, 336);
             Controls.Add(P_Controls);
             Controls.Add(L_MiddleText);
-            Controls.Add(L_Greet);
+            Controls.Add(L_BigText);
             Name = "Form1";
             Text = "PwdFolder";
             Load += Form1_Load;
@@ -184,7 +184,7 @@
 
         #endregion
 
-        private Label L_Greet;
+        private Label L_BigText;
         private Label L_MiddleText;
         private MaskedTextBox TB_Password;
         private Panel P_Controls;
