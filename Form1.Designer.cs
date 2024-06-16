@@ -47,7 +47,7 @@
             // L_Greet
             // 
             L_Greet.Dock = DockStyle.Top;
-            L_Greet.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            L_Greet.Font = new Font("Segoe UI Semibold", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             L_Greet.Location = new Point(0, 0);
             L_Greet.Name = "L_Greet";
             L_Greet.Size = new Size(324, 42);
@@ -60,7 +60,7 @@
             L_MiddleText.AllowDrop = true;
             L_MiddleText.AutoEllipsis = true;
             L_MiddleText.Dock = DockStyle.Top;
-            L_MiddleText.Font = new Font("Segoe UI", 12F);
+            L_MiddleText.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             L_MiddleText.ForeColor = SystemColors.ControlDarkDark;
             L_MiddleText.Location = new Point(0, 42);
             L_MiddleText.Name = "L_MiddleText";
@@ -127,6 +127,7 @@
             B_ProtectFolder.TabIndex = 1;
             B_ProtectFolder.Text = "Protect Folder";
             B_ProtectFolder.UseVisualStyleBackColor = true;
+            B_ProtectFolder.Click += B_ProtectFolder_Click;
             // 
             // TP_Unlock
             // 
