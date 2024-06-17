@@ -37,7 +37,7 @@
             B_ProtectFolder = new Button();
             TP_Unlock = new TabPage();
             button2 = new Button();
-            button1 = new Button();
+            B_UnlockFolder = new Button();
             P_Controls.SuspendLayout();
             TC_Buttons.SuspendLayout();
             TP_Protect.SuspendLayout();
@@ -132,7 +132,7 @@
             // TP_Unlock
             // 
             TP_Unlock.Controls.Add(button2);
-            TP_Unlock.Controls.Add(button1);
+            TP_Unlock.Controls.Add(B_UnlockFolder);
             TP_Unlock.Location = new Point(4, 24);
             TP_Unlock.Name = "TP_Unlock";
             TP_Unlock.Padding = new Padding(3);
@@ -152,16 +152,17 @@
             button2.Text = "Remove Protection";
             button2.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // B_UnlockFolder
             // 
-            button1.Dock = DockStyle.Right;
-            button1.Font = new Font("Segoe UI", 12F);
-            button1.Location = new Point(87, 3);
-            button1.Name = "button1";
-            button1.Size = new Size(220, 43);
-            button1.TabIndex = 2;
-            button1.Text = "Unlock Folder";
-            button1.UseVisualStyleBackColor = true;
+            B_UnlockFolder.Dock = DockStyle.Right;
+            B_UnlockFolder.Font = new Font("Segoe UI", 12F);
+            B_UnlockFolder.Location = new Point(87, 3);
+            B_UnlockFolder.Name = "B_UnlockFolder";
+            B_UnlockFolder.Size = new Size(220, 43);
+            B_UnlockFolder.TabIndex = 2;
+            B_UnlockFolder.Text = "Unlock Folder";
+            B_UnlockFolder.UseVisualStyleBackColor = true;
+            B_UnlockFolder.Click += B_UnlockFolder_Click;
             // 
             // Form1
             // 
@@ -192,7 +193,7 @@
         private TabPage TP_Unlock;
         private Button B_ProtectFolder;
         private Button button2;
-        private Button button1;
+        private Button B_UnlockFolder;
         private TabPage TP_Protect;
     }
 }

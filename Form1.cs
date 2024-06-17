@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using Transitions;
 
 namespace PwdFolder
@@ -128,7 +129,7 @@ namespace PwdFolder
 
         private async void B_ProtectFolder_Click(object sender, EventArgs e)
         {
-            if(string.IsNullOrWhiteSpace(TB_Password.Text))
+            if (string.IsNullOrWhiteSpace(TB_Password.Text))
             {
                 SetMiddleText("Please enter a password");
                 return;
@@ -144,6 +145,30 @@ namespace PwdFolder
                     return;
                 }
                 SetMiddleText("Folder is now being protected.");
+            });
+        }
+
+        private async void B_UnlockFolder_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(TB_Password.Text))
+            {
+                SetMiddleText("Please enter the password");
+                return;
+            }
+            await LockUtil.UnlockFolderAsync(folderPath, TB_Password.Text, new Progress<int>(percentComplete =>
+            {
+                SetMiddleText($"Decrypting... ({percentComplete}%)");
+            })).ContinueWith(task =>
+            {
+                string tempFolder = task.Result;
+                Process.Start("explorer.exe", tempFolder);
+
+                if (task.IsFaulted)
+                {
+                    SetMiddleText(task.Exception.Message);
+                    return;
+                }
+                SetMiddleText("Folder is now unlocked.");
             });
         }
     }

@@ -49,13 +49,37 @@ namespace PwdFolder
                 progress?.Report(50 + percentComplete / 2); // 50-100% for encryption
             }));
 
-            if(Directory.GetParent(folderPath).FullName == null)
+            if(Directory.GetParent(folderPath)?.FullName == null)
             {
                 throw new DirectoryNotFoundException("The parent folder does not exist.");
             }
 
             //Move the zip in temp directory to the parent folder
-            File.Move(zipFileName, Path.Combine((Directory.GetParent(folderPath).FullName), Path.GetFileName(folderPath) + ".pwf"));
+            File.Move(zipFileName, Path.Combine((Directory.GetParent(folderPath)!.FullName), Path.GetFileName(folderPath) + ".pwf"));
+        }
+
+
+        //returns temp folder path
+        public static async Task<string> UnlockFolderAsync(string filePath, string password, IProgress<int>? progress = null)
+        {
+            string tempFolder = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString());
+
+            UnzipToFolder(filePath, tempFolder);
+
+            return tempFolder;
+        }
+
+        private static void UnzipToFolder(string zipPath, string folderPath)
+        {
+            Directory.CreateDirectory(folderPath);
+            using (ZipArchive archive = new ZipArchive(File.OpenRead(zipPath), ZipArchiveMode.Read))
+            {
+                foreach (ZipArchiveEntry entry in archive.Entries)
+                {
+                    string entryPath = Path.Combine(folderPath, entry.FullName);
+                    entry.ExtractToFile(entryPath, true);
+                }
+            }
         }
     }
 }
